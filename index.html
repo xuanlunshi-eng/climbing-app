@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121714" />
+    <title>&#25856;&#29228;&#25163;&#36134;</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Climb Log</p>
+          <h1>&#25856;&#29228;&#25163;&#36134;</h1>
+        </div>
+        <button class="icon-button" id="exportButton" title="Export" aria-label="Export">↓</button>
+      </header>
+
+      <main>
+        <section class="view active" id="view-today">
+          <div class="today-hero">
+            <div>
+              <p class="eyebrow" id="todayDateLabel">Today</p>
+              <h2>&#20170;&#22825;</h2>
+              <div class="hero-date-field">
+                <input id="dateInput" type="date" required />
+                <button class="small-button" type="button" id="todayButton">&#20170;&#22825;</button>
+              </div>
+            </div>
+            <div class="today-count">
+              <strong id="todayRouteCount">0</strong>
+              <span>&#26465;</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="section-heading">
+              <h2>&#24555;&#36895;&#35760;&#19968;&#26465;</h2>
+              <p>&#20808;&#28857;&#36873;&#65292;&#26377;&#38656;&#35201;&#20877;&#20889;&#22791;&#27880;&#12290;</p>
+            </div>
+
+            <form id="routeForm" class="route-form">
+              <label>
+                &#23721;&#39302;
+                <div class="inline-field">
+                  <select id="gymSelect" required></select>
+                </div>
+              </label>
+              <input id="typeInput" type="hidden" value="Boulder" />
+
+              <div class="quick-block">
+                <div class="quick-label">&#31867;&#22411;</div>
+                <div class="quick-picks" id="typePicks">
+                  <button type="button" class="quick-chip active" data-type="Boulder">&#25265;&#30707;</button>
+                  <button type="button" class="quick-chip" data-type="AutoBelay">&#33258;&#20445;</button>
+                  <button type="button" class="quick-chip" data-type="TopRope">&#39030;&#32499;</button>
+                  <button type="button" class="quick-chip" data-type="Lead">&#20808;&#38155;</button>
+                  <button type="button" class="quick-chip" data-type="Speed">&#36895;&#24230;</button>
+                </div>
+              </div>
+
+              <label>
+                &#38590;&#24230;
+                <select id="gradeInput" required></select>
+              </label>
+
+              <div class="field-grid">
+                <label>
+                  &#23581;&#35797;&#27425;&#25968;
+                  <div class="stepper">
+                    <button type="button" id="attemptMinus">-</button>
+                    <input id="attemptsInput" type="number" min="1" value="1" required />
+                    <button type="button" id="attemptPlus">+</button>
+                  </div>
+                </label>
+              </div>
+
+              <div class="quick-block">
+                <div class="quick-label">&#39118;&#26684;</div>
+                <div class="quick-picks" id="stylePicks">
+                  <button type="button" class="quick-chip" data-style="Dynamic">&#21160;&#24577;</button>
+                  <button type="button" class="quick-chip" data-style="Coordination">&#21327;&#35843;</button>
+                  <button type="button" class="quick-chip" data-style="Balance">&#24179;&#34913;</button>
+                  <button type="button" class="quick-chip" data-style="Power">&#21147;&#37327;</button>
+                </div>
+                <input id="styleInput" type="hidden" value="" />
+              </div>
+
+              <label class="note-field collapsed" id="noteField">
+                &#22791;&#27880;
+                <button class="small-button" type="button" id="toggleNoteButton">&#28155;&#21152;&#22791;&#27880;</button>
+                <textarea id="noteInput" rows="3" placeholder="beta, feeling, next try"></textarea>
+                <input id="photoInput" type="file" accept="image/*" capture="environment" />
+                <div class="photo-preview hidden" id="photoPreview"></div>
+              </label>
+
+              <button class="primary-button" type="submit">&#20445;&#23384;&#36825;&#26465;&#32447;&#36335;</button>
+            </form>
+          </div>
+
+        </section>
+
+        <section class="view" id="view-stats">
+          <div class="panel">
+            <div class="section-heading">
+              <h2>&#38590;&#24230;&#28909;&#21147;&#22270;</h2>
+              <p>&#39068;&#33394;&#36234;&#28145;&#65292;&#20195;&#34920;&#35760;&#24405;&#36234;&#22810;&#12290;</p>
+            </div>
+            <div class="heatmap" id="gradeHeatmap"></div>
+          </div>
+        </section>
+
+        <section class="view" id="view-settings">
+          <div class="panel">
+            <div class="section-heading">
+              <h2>&#35774;&#32622;</h2>
+              <p>&#19981;&#24120;&#29992;&#30340;&#31649;&#29702;&#21151;&#33021;&#25918;&#22312;&#36825;&#37324;&#12290;</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="section-heading">
+              <h2>&#23721;&#39302;&#31649;&#29702;</h2>
+            </div>
+            <form id="gymForm" class="gym-form">
+              <input id="gymNameInput" placeholder="Gym name" required />
+              <input id="gymCityInput" placeholder="City / area" />
+              <button class="primary-button" type="submit">&#28155;&#21152;&#23721;&#39302;</button>
+            </form>
+          </div>
+          <div class="list" id="gymList"></div>
+
+          <div class="panel">
+            <div class="section-heading">
+              <h2>&#37197;&#33394;</h2>
+              <p>&#36873;&#19968;&#20010;&#30475;&#30528;&#39034;&#30524;&#30340;&#35760;&#24405;&#27668;&#27675;&#12290;</p>
+            </div>
+            <div class="theme-grid" id="themeGrid">
+              <button class="theme-option active" type="button" data-theme="default">
+                <span class="theme-swatch default"></span>
+                <span>&#23665;&#37326;</span>
+              </button>
+              <button class="theme-option" type="button" data-theme="chalk">
+                <span class="theme-swatch chalk"></span>
+                <span>&#38209;&#31881;</span>
+              </button>
+              <button class="theme-option" type="button" data-theme="night">
+                <span class="theme-swatch night"></span>
+                <span>&#22812;&#25856;</span>
+              </button>
+              <button class="theme-option" type="button" data-theme="sunset">
+                <span class="theme-swatch sunset"></span>
+                <span>&#26085;&#33853;</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="view-history">
+          <div class="panel">
+            <div class="section-heading">
+              <h2>&#21382;&#21490;</h2>
+              <p>&#25152;&#26377;&#25856;&#29228;&#35760;&#24405;&#37117;&#20250;&#22312;&#36825;&#37324;&#12290;</p>
+            </div>
+            <div class="filter-row">
+              <select id="historyGymFilter"></select>
+              <select id="historyTypeFilter">
+                <option value="All">&#20840;&#37096;&#31867;&#22411;</option>
+                <option value="Boulder">&#25265;&#30707;</option>
+                <option value="AutoBelay">&#33258;&#20445;</option>
+                <option value="TopRope">&#39030;&#32499;</option>
+                <option value="Lead">&#20808;&#38155;</option>
+                <option value="Speed">&#36895;&#24230;</option>
+              </select>
+            </div>
+          </div>
+          <div class="list" id="routeList"></div>
+        </section>
+      </main>
+
+      <nav class="tabbar" aria-label="Main navigation">
+        <button class="tab active" type="button" data-view="today">+<span>&#20170;&#22825;</span></button>
+        <button class="tab" type="button" data-view="stats">▥<span>&#32479;&#35745;</span></button>
+        <button class="tab" type="button" data-view="history">≡<span>&#21382;&#21490;</span></button>
+        <button class="tab" type="button" data-view="settings">⚙<span>&#35774;&#32622;</span></button>
+      </nav>
+    </div>
+
+    <template id="emptyTemplate">
+      <div class="empty-state">&#36824;&#27809;&#26377;&#25968;&#25454;&#65292;&#20808;&#35760;&#24405;&#19968;&#26465;&#32447;&#36335;&#21543;&#12290;</div>
+    </template>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
