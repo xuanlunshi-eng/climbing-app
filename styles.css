@@ -66,7 +66,7 @@ button {
   max-width: 760px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 42px 28px 116px;
+  padding: 30px 18px 106px;
 }
 
 .view {
@@ -107,13 +107,6 @@ h1 {
   letter-spacing: 0;
 }
 
-.subtitle {
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-
 .avatar {
   width: 68px;
   height: 68px;
@@ -122,6 +115,8 @@ h1 {
   background:
     linear-gradient(145deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.35)),
     linear-gradient(135deg, #79b5cf 0 35%, #365c45 36% 58%, #ca6d2f 59% 100%);
+  background-size: cover;
+  background-position: center;
   box-shadow: var(--shadow);
 }
 
@@ -149,8 +144,8 @@ h1 {
   gap: 18px;
   min-height: 178px;
   border-radius: 22px;
-  padding: 30px 34px;
-  margin-bottom: 24px;
+  padding: 22px;
+  margin-bottom: 18px;
   overflow: hidden;
   color: #fff;
   background:
@@ -172,6 +167,15 @@ h1 {
 
 .daily-left strong {
   font-size: 1.7rem;
+}
+
+.daily-left select {
+  max-width: 260px;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 900;
 }
 
 .daily-date {
@@ -235,8 +239,8 @@ h1 {
 }
 
 .record-card {
-  padding: 28px;
-  margin-bottom: 28px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .section-title {
@@ -269,7 +273,7 @@ h1 {
 label,
 .form-row {
   display: grid;
-  grid-template-columns: 96px 1fr;
+  grid-template-columns: 72px 1fr;
   align-items: center;
   gap: 16px;
   color: var(--ink);
@@ -301,8 +305,8 @@ textarea {
 }
 
 .pill {
-  min-width: 84px;
-  min-height: 48px;
+  min-width: 72px;
+  min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.72);
@@ -369,7 +373,7 @@ textarea {
 }
 
 .save-button {
-  min-height: 62px;
+  min-height: 56px;
   border: 0;
   border-radius: 18px;
   background: linear-gradient(135deg, var(--brand), #0b442c);
@@ -407,13 +411,13 @@ textarea {
 
 .recent-card {
   display: grid;
-  grid-template-columns: 76px 1fr auto 56px;
+  grid-template-columns: 58px 1fr auto 38px;
   align-items: center;
   gap: 16px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: var(--shadow);
-  padding: 14px 18px;
+  padding: 10px 12px;
 }
 
 [data-theme="night"] .recent-card {
@@ -424,8 +428,8 @@ textarea {
   display: grid;
   place-items: center;
   width: 64px;
-  height: 64px;
-  border-radius: 16px;
+  height: 52px;
+  border-radius: 14px;
   color: #fff;
   font-size: clamp(0.82rem, 3.2vw, 1.35rem);
   font-weight: 900;
@@ -464,10 +468,12 @@ textarea {
 }
 
 .recent-card button {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.6);
-  min-height: 52px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--muted);
+  min-height: 38px;
+  font-size: 1rem;
 }
 
 .recent-thumb {
@@ -482,7 +488,7 @@ textarea {
   grid-template-columns: 116px 1.5fr repeat(3, 1fr);
   align-items: center;
   gap: 20px;
-  padding: 30px;
+  padding: 22px;
   margin-bottom: 24px;
 }
 
@@ -500,15 +506,6 @@ textarea {
 .profile-stat small {
   color: var(--muted);
   font-weight: 700;
-}
-
-.profile-name em {
-  justify-self: start;
-  border-radius: 999px;
-  background: #7ebb89;
-  padding: 4px 14px;
-  font-style: normal;
-  font-weight: 900;
 }
 
 .profile-stat {
@@ -541,14 +538,14 @@ textarea {
 
 .heatmap-cells {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(58px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+  gap: 8px;
 }
 
 .heatmap-cell {
   display: grid;
   place-items: center;
-  min-height: 76px;
+  min-height: 58px;
   border: 1px solid rgba(18, 97, 61, calc(0.12 + var(--heat) * 0.3));
   border-radius: 12px;
   background: rgba(18, 97, 61, calc(0.06 + var(--heat) * 0.62));
@@ -624,7 +621,7 @@ textarea {
   grid-template-columns: 96px 1fr auto;
   align-items: center;
   gap: 20px;
-  padding: 30px;
+  padding: 18px;
 }
 
 .profile-editor {
@@ -659,7 +656,7 @@ textarea {
 .gym-manager,
 .theme-card,
 .card {
-  padding: 28px;
+  padding: 20px;
 }
 
 .manager-head {
@@ -733,14 +730,14 @@ textarea {
 .tabbar {
   position: fixed;
   right: 0;
-  bottom: 18px;
+  bottom: 12px;
   left: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4px;
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 14px 18px;
+  padding: 10px 14px;
   border: 1px solid var(--line);
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.88);
@@ -756,7 +753,7 @@ textarea {
   display: grid;
   gap: 4px;
   place-items: center;
-  min-height: 62px;
+  min-height: 54px;
   border: 0;
   border-radius: 18px;
   background: transparent;

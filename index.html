@@ -16,7 +16,6 @@
             <div>
               <p class="eyebrow">CLIMB LOG</p>
               <h1>&#25856;&#29228;&#25163;&#36134;</h1>
-              <p class="subtitle">&#20170;&#22825;&#20063;&#21435;&#25720;&#28857;&#21543;&#12290;</p>
             </div>
             <div class="profile-mini">
               <div class="avatar mountain-avatar" id="homeAvatar"></div>
@@ -28,7 +27,7 @@
           <section class="daily-card">
             <div class="daily-left">
               <div class="daily-line">&#128205; <span>&#20170;&#26085;&#23721;&#39302;</span></div>
-              <strong id="todayGymName">Demo Gym</strong>
+              <select id="gymSelect" required></select>
               <div class="daily-date">
                 <span>&#128197;</span>
                 <input id="dateInput" type="date" required />
@@ -48,11 +47,6 @@
             </div>
 
             <form id="routeForm" class="record-form">
-              <label>
-                <span>&#23721;&#39302;</span>
-                <select id="gymSelect" required></select>
-              </label>
-
               <input id="typeInput" type="hidden" value="Boulder" />
 
               <div class="form-row">
@@ -119,7 +113,6 @@
             <div class="profile-name">
               <strong id="statsUserName">SHOKO</strong>
               <span id="statsUserBio">Climbing since 2026</span>
-              <em>Lv.10</em>
             </div>
             <div class="profile-stat">
               <span>&#32047;&#35745;&#35760;&#24405;</span>
@@ -141,16 +134,17 @@
           <section class="card">
             <div class="section-title row-title">
               <div>
-                <h2>&#38590;&#24230;&#28909;&#21147;&#22270; ⓘ</h2>
+                <h2>&#38590;&#24230;&#28909;&#21147;&#22270;</h2>
                 <p>&#39068;&#33394;&#36234;&#28145;&#65292;&#20195;&#34920;&#35760;&#24405;&#36234;&#22810;&#12290;</p>
               </div>
+              <select id="statsGymFilter"></select>
             </div>
             <div class="heatmap" id="gradeHeatmap"></div>
           </section>
 
           <section class="card style-card">
             <div class="section-title">
-              <h2>&#39118;&#26684;&#20998;&#26512; ⓘ</h2>
+              <h2>&#39118;&#26684;&#20998;&#26512;</h2>
               <p>&#20320;&#30340;&#25856;&#29228;&#39118;&#26684;&#20998;&#24067;</p>
             </div>
             <div class="style-analysis">

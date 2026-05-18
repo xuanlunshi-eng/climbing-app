@@ -159,21 +159,38 @@
 
   function renderGymOptions() {
     var selected = $("#gymSelect").value;
+    var statsSelected = $("#statsGymFilter").value || "All";
     $("#gymSelect").innerHTML = "";
+    $("#statsGymFilter").innerHTML = "";
+
+    var allStatsOption = document.createElement("option");
+    allStatsOption.value = "All";
+    allStatsOption.textContent = "\u5168\u90e8\u5ca9\u9986";
+    $("#statsGymFilter").appendChild(allStatsOption);
+
     state.gyms.forEach(function (gym) {
       var option = document.createElement("option");
       option.value = gym.id;
       option.textContent = gym.name;
       $("#gymSelect").appendChild(option);
+
+      var statsOption = document.createElement("option");
+      statsOption.value = gym.id;
+      statsOption.textContent = gym.name;
+      $("#statsGymFilter").appendChild(statsOption);
     });
     if (selected && state.gyms.some(function (gym) { return gym.id === selected; })) {
       $("#gymSelect").value = selected;
+    }
+    if (statsSelected !== "All" && state.gyms.some(function (gym) { return gym.id === statsSelected; })) {
+      $("#statsGymFilter").value = statsSelected;
     }
     renderTodayGym();
   }
 
   function renderTodayGym() {
-    $("#todayGymName").textContent = getGymName($("#gymSelect").value || (state.gyms[0] && state.gyms[0].id));
+    var selectedGym = $("#gymSelect").value || (state.gyms[0] && state.gyms[0].id);
+    if (selectedGym) $("#gymSelect").value = selectedGym;
   }
 
   function renderGyms() {
@@ -240,11 +257,15 @@
   function renderGradeHeatmap() {
     var container = $("#gradeHeatmap");
     container.innerHTML = "";
-    if (!state.routes.length) {
+    var selectedGym = $("#statsGymFilter").value || "All";
+    var statRoutes = state.routes.filter(function (route) {
+      return selectedGym === "All" || route.gymId === selectedGym;
+    });
+    if (!statRoutes.length) {
       container.appendChild(emptyNode());
       return;
     }
-    var counts = countBy(state.routes, function (route) {
+    var counts = countBy(statRoutes, function (route) {
       return (route.type || "Boulder") + "::" + route.grade;
     });
     var max = Object.keys(counts).reduce(function (result, key) {
@@ -252,7 +273,7 @@
     }, 1);
     Object.keys(gradeOptions).forEach(function (type) {
       var grades = gradeOptions[type].slice();
-      var hasTypeData = state.routes.some(function (route) {
+      var hasTypeData = statRoutes.some(function (route) {
         return (route.type || "Boulder") === type;
       });
       if (!hasTypeData) return;
@@ -408,6 +429,7 @@
     updateGradeOptions($("#typeInput").value);
 
     $("#gymSelect").addEventListener("change", renderTodayGym);
+    $("#statsGymFilter").addEventListener("change", renderGradeHeatmap);
     $("#dateInput").addEventListener("change", renderToday);
     $("#todayButton").addEventListener("click", function () {
       $("#dateInput").value = today();
