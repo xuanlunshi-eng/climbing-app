@@ -413,6 +413,60 @@
     });
   }
 
+  function compressAvatarFile(file) {
+    return new Promise(function (resolve) {
+      if (!file) return resolve("");
+
+      var reader = new FileReader();
+      reader.onerror = function () { resolve(""); };
+      reader.onload = function () {
+        var img = new Image();
+        img.onerror = function () { resolve(""); };
+        img.onload = function () {
+          var size = Math.min(img.width, img.height);
+          var sourceX = Math.floor((img.width - size) / 2);
+          var sourceY = Math.floor((img.height - size) / 2);
+          var canvas = document.createElement("canvas");
+          var outputSize = 320;
+          canvas.width = outputSize;
+          canvas.height = outputSize;
+          var ctx = canvas.getContext("2d");
+          ctx.fillStyle = "#f7f5f0";
+          ctx.fillRect(0, 0, outputSize, outputSize);
+          ctx.drawImage(img, sourceX, sourceY, size, size, 0, 0, outputSize, outputSize);
+
+          var mime = "image/webp";
+          var quality = 0.86;
+          var dataUrl = canvas.toDataURL(mime, quality);
+
+          if (dataUrl.indexOf("data:image/webp") !== 0) {
+            mime = "image/jpeg";
+            dataUrl = canvas.toDataURL(mime, quality);
+          }
+
+          while (dataUrl.length > 200 * 1024 * 1.35 && quality > 0.42) {
+            quality -= 0.08;
+            dataUrl = canvas.toDataURL(mime, quality);
+          }
+
+          if (dataUrl.length > 200 * 1024 * 1.35) {
+            canvas.width = 240;
+            canvas.height = 240;
+            ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#f7f5f0";
+            ctx.fillRect(0, 0, 240, 240);
+            ctx.drawImage(img, sourceX, sourceY, size, size, 0, 0, 240, 240);
+            dataUrl = canvas.toDataURL(mime, 0.5);
+          }
+
+          resolve(dataUrl);
+        };
+        img.src = String(reader.result || "");
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     window.localStorage.setItem(THEME_KEY, theme);
@@ -522,7 +576,7 @@
 
     $("#saveProfileButton").addEventListener("click", function () {
       var file = $("#profileAvatarInput").files && $("#profileAvatarInput").files[0];
-      readPhotoFile(file).then(function (avatar) {
+      compressAvatarFile(file).then(function (avatar) {
         state.profile = {
           name: $("#profileNameInput").value.trim() || "SHOKO",
           bio: $("#profileBioInput").value.trim() || "Climbing since 2026",

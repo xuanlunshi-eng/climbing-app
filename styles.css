@@ -817,3 +817,319 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobile-first density pass for iPhone 13/14/15 sized screens. */
+@media (max-width: 480px) {
+  .app-shell {
+    max-width: 430px;
+    padding: 18px 14px 86px;
+  }
+
+  .page-header,
+  .home-header,
+  .stats-header {
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .eyebrow {
+    margin-bottom: 5px;
+    font-size: 0.72rem;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .avatar.large {
+    width: 76px;
+    height: 76px;
+  }
+
+  .profile-mini {
+    gap: 1px;
+    font-size: 0.72rem;
+  }
+
+  .profile-mini .streak {
+    font-size: 1rem;
+  }
+
+  .daily-card {
+    min-height: 112px;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 10px;
+    padding: 13px;
+    margin-bottom: 12px;
+    border-radius: 16px;
+  }
+
+  .daily-left {
+    gap: 7px;
+  }
+
+  .daily-line {
+    font-size: 0.76rem;
+  }
+
+  .daily-left select {
+    max-width: 210px;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 900;
+  }
+
+  .daily-date {
+    grid-template-columns: auto 1fr auto;
+    gap: 6px;
+  }
+
+  .daily-date input,
+  .daily-date button {
+    padding: 7px 8px;
+    font-size: 0.72rem;
+  }
+
+  .daily-right {
+    padding-left: 10px;
+  }
+
+  .daily-right span {
+    font-size: 0.68rem;
+  }
+
+  .daily-right strong {
+    font-size: 2.35rem;
+  }
+
+  .daily-right small {
+    font-size: 0.78rem;
+  }
+
+  .record-card,
+  .card,
+  .gym-manager,
+  .theme-card,
+  .style-card {
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .record-card {
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    margin-bottom: 12px;
+    gap: 4px;
+  }
+
+  .section-title h2 {
+    font-size: 1.05rem;
+  }
+
+  .section-title p {
+    font-size: 0.82rem;
+  }
+
+  .record-form {
+    gap: 11px;
+  }
+
+  label,
+  .form-row {
+    grid-template-columns: 62px 1fr;
+    gap: 9px;
+    font-size: 0.84rem;
+  }
+
+  input,
+  select,
+  textarea {
+    border-radius: 12px;
+    padding: 9px 10px;
+    font-size: 0.9rem;
+  }
+
+  .pill-row {
+    gap: 6px;
+  }
+
+  .pill {
+    min-width: 54px;
+    min-height: 32px;
+    border-radius: 999px;
+    padding: 0 10px;
+    font-size: 0.82rem;
+  }
+
+  .note-input {
+    grid-template-columns: 1fr 40px;
+    gap: 6px;
+  }
+
+  .photo-button {
+    border-radius: 12px;
+    font-size: 1.1rem;
+  }
+
+  .save-button {
+    min-height: 44px;
+    border-radius: 13px;
+    font-size: 0.98rem;
+  }
+
+  .recent-section {
+    margin-top: 12px;
+  }
+
+  .recent-title {
+    margin: 0 4px 8px;
+  }
+
+  .recent-title h2 {
+    font-size: 1.05rem;
+  }
+
+  .recent-list {
+    gap: 8px;
+  }
+
+  .recent-card {
+    grid-template-columns: 46px 1fr 36px;
+    gap: 9px;
+    border-radius: 14px;
+    padding: 9px 10px;
+  }
+
+  .grade-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    font-size: clamp(0.7rem, 3vw, 1rem);
+  }
+
+  .recent-card strong {
+    font-size: 0.98rem;
+  }
+
+  .recent-card span {
+    margin-top: 2px;
+    font-size: 0.78rem;
+  }
+
+  .recent-card button {
+    min-height: 30px;
+    font-size: 0.88rem;
+  }
+
+  .recent-thumb {
+    display: none;
+  }
+
+  .profile-card {
+    grid-template-columns: 76px 1fr;
+    gap: 12px;
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .profile-name strong {
+    font-size: 1.18rem;
+  }
+
+  .profile-name span,
+  .profile-stat span,
+  .profile-stat small {
+    font-size: 0.76rem;
+  }
+
+  .profile-stat {
+    min-height: 52px;
+    padding-top: 10px;
+  }
+
+  .profile-stat strong {
+    font-size: 1.28rem;
+  }
+
+  .heatmap {
+    gap: 14px;
+  }
+
+  .heatmap-cells {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 6px;
+  }
+
+  .heatmap-cell {
+    min-height: 44px;
+    border-radius: 9px;
+  }
+
+  .heatmap-cell strong {
+    font-size: 0.78rem;
+  }
+
+  .heatmap-cell span {
+    font-size: 0.68rem;
+  }
+
+  .style-analysis {
+    gap: 12px;
+  }
+
+  #styleCanvas {
+    max-width: 170px;
+  }
+
+  .styleLegend {
+    gap: 10px;
+  }
+
+  .settings-title {
+    padding: 8px 4px 14px;
+  }
+
+  .settings-label {
+    margin: 14px 4px 8px;
+    font-size: 0.9rem;
+  }
+
+  .settings-profile {
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .gym-row {
+    min-height: 48px;
+    font-size: 0.98rem;
+  }
+
+  .tabbar {
+    bottom: 8px;
+    max-width: 390px;
+    padding: 7px 10px;
+    border-radius: 18px;
+  }
+
+  .tab {
+    min-height: 44px;
+    border-radius: 14px;
+    font-size: 0.78rem;
+  }
+
+  .tab-icon {
+    font-size: 1.08rem;
+  }
+}
