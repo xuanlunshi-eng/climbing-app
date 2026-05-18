@@ -4,234 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f7f5f0" />
-    <title>&#25856;&#29228;&#25163;&#36134;</title>
+    <title>SEND.</title>
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="icon-calendar-days" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></symbol>
+      <symbol id="icon-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+      <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 17c1.38 0 2-.5 2.5-1.5.5-1 .28-2.02-.5-3-.77-.98-1.5-2-1-3.5-1.5 1-2.6 2.4-3.5 4.5"/><path d="M12 22c4.97 0 8-3.58 8-8.1 0-3.7-2.3-6.34-4.72-8.55-.49-.45-1.28-.1-1.28.56 0 1.34-.43 2.36-1 3.09-.57-.73-1-1.75-1-3.09 0-.66-.79-1.01-1.28-.56C8.3 7.56 6 10.2 6 13.9 6 18.42 7.03 22 12 22"/></symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+      <symbol id="icon-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.77 4 4 0 0 1 0 6.76 4 4 0 0 1-4.78 4.77 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="icon-trash-2" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6 18 20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
+      <symbol id="icon-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/><path d="M4.14 15.08 8 11l3 4 2-2.5 3.86 5.58"/></symbol>
+      <symbol id="icon-bar-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16V8"/><path d="M12 16V4"/><path d="M17 16v-6"/></symbol>
+      <symbol id="icon-settings" viewBox="0 0 24 24"><path d="M9.67 2h4.66l.5 2.3a8 8 0 0 1 1.7.98l2.23-.73 2.33 4.04-1.74 1.57a8 8 0 0 1 0 1.96l1.74 1.57-2.33 4.04-2.23-.73a8 8 0 0 1-1.7.98l-.5 2.3H9.67l-.5-2.3a8 8 0 0 1-1.7-.98l-2.23.73-2.33-4.04 1.74-1.57a8 8 0 0 1 0-1.96L2.91 8.59l2.33-4.04 2.23.73a8 8 0 0 1 1.7-.98z"/><circle cx="12" cy="12" r="3"/></symbol>
+    </svg>
+
     <div class="app-shell">
       <main>
         <section class="view active" id="view-today">
           <header class="page-header home-header">
             <div>
               <p class="eyebrow">CLIMB LOG</p>
-              <h1>&#25856;&#29228;&#25163;&#36134;</h1>
+              <h1>SEND.</h1>
             </div>
             <div class="profile-mini">
               <div class="avatar mountain-avatar" id="homeAvatar"></div>
-              <div class="streak">🔥 <strong id="homeStreak">0</strong></div>
+              <div class="streak"><svg class="lucide"><use href="#icon-flame"></use></svg><strong id="homeStreak">0</strong></div>
               <span>&#36830;&#30331;&#22825;&#25968;</span>
             </div>
           </header>
 
           <section class="daily-card">
             <div class="daily-left">
-              <div class="daily-line">&#128205; <span>&#20170;&#26085;&#23721;&#39302;</span></div>
+              <div class="daily-line"><svg class="lucide"><use href="#icon-map-pin"></use></svg><span>&#24403;&#21069;&#23721;&#39302;</span></div>
               <select id="gymSelect" required></select>
               <div class="daily-date">
-                <span>&#128197;</span>
+                <svg class="lucide"><use href="#icon-calendar-days"></use></svg>
                 <input id="dateInput" type="date" required />
                 <button type="button" id="todayButton">&#20170;&#22825;</button>
               </div>
             </div>
             <div class="daily-right">
-              <span>&#9989; &#20170;&#26085;&#23436;&#25104;</span>
+              <span><svg class="lucide"><use href="#icon-badge-check"></use></svg>&#20170;&#26085; Send</span>
               <strong><span id="todayRouteCount">0</span> <small>&#26465;</small></strong>
             </div>
           </section>
 
           <section class="card record-card">
             <div class="section-title">
-              <h2>⚡ &#24555;&#36895;&#35760;&#24405;&#19968;&#26465;</h2>
-              <p>&#20808;&#28857;&#36873;&#65292;&#26377;&#38656;&#35201;&#20877;&#20889;&#22791;&#27880;&#12290;</p>
+              <h2><svg class="lucide"><use href="#icon-zap"></use></svg>&#24555;&#36895;&#35760;&#24405;</h2>
+              <p>&#35760;&#24405;&#27599;&#19968;&#27425;&#23581;&#35797;&#65292;&#31215;&#32047;&#25104;&#38271;&#12290;</p>
             </div>
-
             <form id="routeForm" class="record-form">
               <input id="typeInput" type="hidden" value="Boulder" />
-
-              <div class="form-row">
-                <span>&#31867;&#22411;</span>
-                <div class="pill-row" id="typePicks">
-                  <button type="button" class="pill active" data-type="Boulder">&#25265;&#30707;</button>
-                  <button type="button" class="pill" data-type="AutoBelay">&#33258;&#20445;</button>
-                  <button type="button" class="pill" data-type="TopRope">&#39030;&#32499;</button>
-                  <button type="button" class="pill" data-type="Lead">&#20808;&#38155;</button>
-                  <button type="button" class="pill" data-type="Speed">&#36895;&#24230;</button>
-                </div>
-              </div>
-
-              <label>
-                <span>&#38590;&#24230;</span>
-                <select id="gradeInput" required></select>
-              </label>
-
-              <div class="form-row">
-                <span>&#39118;&#26684;</span>
-                <div class="pill-row" id="stylePicks">
-                  <button type="button" class="pill active" data-style="Dynamic">&#21160;&#24577;</button>
-                  <button type="button" class="pill" data-style="Coordination">&#21327;&#35843;</button>
-                  <button type="button" class="pill" data-style="Balance">&#24179;&#34913;</button>
-                  <button type="button" class="pill" data-style="Power">&#21147;&#37327;</button>
-                </div>
-                <input id="styleInput" type="hidden" value="Dynamic" />
-              </div>
-
-              <label class="note-row">
-                <span>&#22791;&#27880;&#65288;&#21487;&#36873;&#65289;</span>
-                <div class="note-input">
-                  <input id="noteInput" placeholder="&#20889;&#28857;&#20160;&#20040;..." />
-                  <label class="photo-button" for="photoInput">&#128248;</label>
-                  <input id="photoInput" type="file" accept="image/*" capture="environment" />
-                </div>
-                <div class="photo-preview hidden" id="photoPreview"></div>
-              </label>
-
+              <div class="form-row"><span>&#31867;&#22411;</span><div class="pill-row" id="typePicks"><button type="button" class="pill active" data-type="Boulder">&#25265;&#30707;</button><button type="button" class="pill" data-type="AutoBelay">&#33258;&#20445;</button><button type="button" class="pill" data-type="TopRope">&#39030;&#32499;</button><button type="button" class="pill" data-type="Lead">&#20808;&#38155;</button><button type="button" class="pill" data-type="Speed">&#36895;&#24230;</button></div></div>
+              <label><span>&#38590;&#24230;</span><select id="gradeInput" required></select></label>
+              <div class="form-row"><span>&#39118;&#26684;</span><div class="pill-row" id="stylePicks"><button type="button" class="pill active" data-style="Dynamic">&#21160;&#24577;</button><button type="button" class="pill" data-style="Coordination">&#21327;&#35843;</button><button type="button" class="pill" data-style="Balance">&#24179;&#34913;</button><button type="button" class="pill" data-style="Power">&#21147;&#37327;</button></div><input id="styleInput" type="hidden" value="Dynamic" /></div>
+              <label class="note-row"><span>&#22791;&#27880;&#65288;&#21487;&#36873;&#65289;</span><div class="note-input"><input id="noteInput" placeholder="&#20889;&#28857;&#20160;&#20040;..." /><label class="photo-button" for="photoInput"><svg class="lucide button-icon"><use href="#icon-camera"></use></svg></label><input id="photoInput" type="file" accept="image/*" capture="environment" /></div><div class="photo-preview hidden" id="photoPreview"></div></label>
               <button class="save-button" type="submit">&#20445;&#23384;&#35760;&#24405;</button>
             </form>
           </section>
 
           <section class="recent-section">
-            <div class="recent-title">
-              <h2>&#26368;&#36817;&#35760;&#24405;</h2>
-              <button type="button" id="showAllRecent">&#26597;&#30475;&#20840;&#37096; ›</button>
-            </div>
+            <div class="recent-title"><h2>&#26368;&#36817;&#35760;&#24405;</h2><button type="button" id="showAllRecent">&#26597;&#30475;&#20840;&#37096;<svg class="lucide button-icon"><use href="#icon-chevron-right"></use></svg></button></div>
             <div class="recent-list" id="recentList"></div>
           </section>
         </section>
 
         <section class="view" id="view-stats">
-          <header class="page-header stats-header">
-            <div>
-              <p class="eyebrow">CLIMB LOG</p>
-              <h1>&#25856;&#29228;&#25163;&#36134;</h1>
-            </div>
-            <div class="avatar mountain-avatar" id="statsAvatar"></div>
-          </header>
-
-          <section class="profile-card">
-            <div class="avatar large mountain-avatar" id="statsProfileAvatar"></div>
-            <div class="profile-name">
-              <strong id="statsUserName">SHOKO</strong>
-              <span id="statsUserBio">Climbing since 2026</span>
-            </div>
-            <div class="profile-stat">
-              <span>&#32047;&#35745;&#35760;&#24405;</span>
-              <strong id="totalRoutes">0</strong>
-              <small>&#26465;</small>
-            </div>
-            <div class="profile-stat">
-              <span>&#25856;&#29228;&#22825;&#25968;</span>
-              <strong id="climbDays">0</strong>
-              <small>&#22825;</small>
-            </div>
-            <div class="profile-stat">
-              <span>&#36830;&#32493;&#25856;&#29228;</span>
-              <strong id="statsStreak">0</strong>
-              <small>&#22825;</small>
-            </div>
-          </section>
-
-          <section class="card">
-            <div class="section-title row-title">
-              <div>
-                <h2>&#38590;&#24230;&#28909;&#21147;&#22270;</h2>
-                <p>&#39068;&#33394;&#36234;&#28145;&#65292;&#20195;&#34920;&#35760;&#24405;&#36234;&#22810;&#12290;</p>
-              </div>
-              <select id="statsGymFilter"></select>
-            </div>
-            <div class="heatmap" id="gradeHeatmap"></div>
-          </section>
-
-          <section class="card style-card">
-            <div class="section-title">
-              <h2>&#39118;&#26684;&#20998;&#26512;</h2>
-              <p>&#20320;&#30340;&#25856;&#29228;&#39118;&#26684;&#20998;&#24067;</p>
-            </div>
-            <div class="style-analysis">
-              <canvas id="styleCanvas" width="220" height="220"></canvas>
-              <div class="styleLegend" id="styleLegend"></div>
-            </div>
-          </section>
+          <header class="page-header stats-header"><div><p class="eyebrow">CLIMB LOG</p><h1>SEND.</h1></div><div class="avatar mountain-avatar" id="statsAvatar"></div></header>
+          <section class="profile-card"><div class="avatar large mountain-avatar" id="statsProfileAvatar"></div><div class="profile-name"><strong id="statsUserName">SHOKO</strong><span id="statsUserBio">Climbing since 2026</span></div><div class="profile-stat"><span>&#32047;&#35745;&#35760;&#24405;</span><strong id="totalRoutes">0</strong><small>&#26465;</small></div><div class="profile-stat"><span>&#25856;&#29228;&#22825;&#25968;</span><strong id="climbDays">0</strong><small>&#22825;</small></div><div class="profile-stat"><span>&#36830;&#32493;&#25856;&#29228;</span><strong id="statsStreak">0</strong><small>&#22825;</small></div></section>
+          <section class="card"><div class="section-title row-title"><div><h2>&#38590;&#24230;&#28909;&#21147;&#22270;</h2><p>&#39068;&#33394;&#36234;&#28145;&#65292;&#20195;&#34920;&#35760;&#24405;&#36234;&#22810;&#12290;</p></div><select id="statsGymFilter"></select></div><div class="heatmap" id="gradeHeatmap"></div></section>
+          <section class="card style-card"><div class="section-title"><h2>&#39118;&#26684;&#20998;&#26512;</h2><p>&#20320;&#30340;&#25856;&#29228;&#39118;&#26684;&#20998;&#24067;</p></div><div class="style-analysis"><canvas id="styleCanvas" width="220" height="220"></canvas><div class="styleLegend" id="styleLegend"></div></div></section>
         </section>
 
         <section class="view" id="view-settings">
-          <header class="settings-title">
-            <h1>&#35774;&#32622;</h1>
-          </header>
-
+          <header class="settings-title"><h1>&#35774;&#32622;</h1></header>
           <p class="settings-label">&#20010;&#20154;&#20449;&#24687;</p>
-          <section class="settings-profile card" id="profileCard">
-            <div class="avatar large mountain-avatar" id="settingsAvatar"></div>
-            <div>
-              <strong id="settingsUserName">SHOKO</strong>
-              <span id="settingsUserBio">&#28909;&#29233;&#25856;&#23721;&#30340;&#35760;&#24405;&#32773;</span>
-            </div>
-            <span class="chevron">›</span>
-          </section>
-
-          <section class="card profile-editor hidden" id="profileEditor">
-            <label>
-              <span>&#21517;&#23383;</span>
-              <input id="profileNameInput" placeholder="SHOKO" />
-            </label>
-            <label>
-              <span>&#31616;&#20171;</span>
-              <input id="profileBioInput" placeholder="&#28909;&#29233;&#25856;&#23721;&#30340;&#35760;&#24405;&#32773;" />
-            </label>
-            <label>
-              <span>&#22836;&#20687;</span>
-              <input id="profileAvatarInput" type="file" accept="image/*" />
-            </label>
-            <button class="save-button" type="button" id="saveProfileButton">&#20445;&#23384;&#20010;&#20154;&#20449;&#24687;</button>
-          </section>
-
+          <section class="settings-profile card" id="profileCard"><div class="avatar large mountain-avatar" id="settingsAvatar"></div><div><strong id="settingsUserName">SHOKO</strong><span id="settingsUserBio">&#28909;&#29233;&#25856;&#23721;&#30340;&#35760;&#24405;&#32773;</span></div><span class="chevron"><svg class="lucide"><use href="#icon-chevron-right"></use></svg></span></section>
+          <section class="card profile-editor hidden" id="profileEditor"><label><span>&#21517;&#23383;</span><input id="profileNameInput" placeholder="SHOKO" /></label><label><span>&#31616;&#20171;</span><input id="profileBioInput" placeholder="&#28909;&#29233;&#25856;&#23721;&#30340;&#35760;&#24405;&#32773;" /></label><label><span>&#22836;&#20687;</span><input id="profileAvatarInput" type="file" accept="image/*" /></label><button class="save-button" type="button" id="saveProfileButton">&#20445;&#23384;&#20010;&#20154;&#20449;&#24687;</button></section>
           <p class="settings-label">&#23721;&#39302;&#31649;&#29702;</p>
-          <section class="card gym-manager">
-            <div class="manager-head">
-              <h2>&#25105;&#30340;&#23721;&#39302;</h2>
-              <button type="button" id="toggleGymEdit">&#32534;&#36753;</button>
-            </div>
-            <div class="gym-list" id="gymList"></div>
-            <form id="gymForm" class="add-gym-form">
-              <input id="gymNameInput" placeholder="&#23721;&#39302;&#21517;&#31216;" required />
-              <button type="submit">＋ &#28155;&#21152;&#23721;&#39302;</button>
-            </form>
-          </section>
-
+          <section class="card gym-manager"><div class="manager-head"><h2>&#25105;&#30340;&#23721;&#39302;</h2><button type="button" id="toggleGymEdit">&#32534;&#36753;</button></div><div class="gym-list" id="gymList"></div><form id="gymForm" class="add-gym-form"><input id="gymNameInput" placeholder="&#23721;&#39302;&#21517;&#31216;" required /><button type="submit">+ &#28155;&#21152;&#23721;&#39302;</button></form></section>
           <p class="settings-label">&#22806;&#35266;</p>
-          <section class="card theme-card">
-            <label>
-              <span>&#20027;&#39064;</span>
-              <select id="themeSelect">
-                <option value="chalk">&#38209;&#31881;</option>
-                <option value="night">&#22812;&#25856;</option>
-                <option value="wild">&#23665;&#37326;</option>
-              </select>
-            </label>
-          </section>
+          <section class="card theme-card"><label><span>&#20027;&#39064;</span><select id="themeSelect"><option value="chalk">&#38209;&#31881;</option><option value="night">&#22812;&#25856;</option><option value="wild">&#23665;&#37326;</option></select></label></section>
         </section>
       </main>
 
       <nav class="tabbar" aria-label="Main navigation">
-        <button class="tab active" type="button" data-view="today">
-          <span class="tab-icon">▲</span>
-          <span>&#20170;&#22825;</span>
-        </button>
-        <button class="tab" type="button" data-view="stats">
-          <span class="tab-icon">▥</span>
-          <span>&#32479;&#35745;</span>
-        </button>
-        <button class="tab" type="button" data-view="settings">
-          <span class="tab-icon">⚙</span>
-          <span>&#35774;&#32622;</span>
-        </button>
+        <button class="tab active" type="button" data-view="today"><span class="tab-icon"><svg class="lucide"><use href="#icon-mountain"></use></svg></span><span>&#20170;&#22825;</span></button>
+        <button class="tab" type="button" data-view="stats"><span class="tab-icon"><svg class="lucide"><use href="#icon-bar-chart"></use></svg></span><span>&#32479;&#35745;</span></button>
+        <button class="tab" type="button" data-view="settings"><span class="tab-icon"><svg class="lucide"><use href="#icon-settings"></use></svg></span><span>&#35774;&#32622;</span></button>
       </nav>
     </div>
-
-    <template id="emptyTemplate">
-      <div class="empty-state">&#36824;&#27809;&#26377;&#25968;&#25454;&#65292;&#20808;&#35760;&#24405;&#19968;&#26465;&#32447;&#36335;&#21543;&#12290;</div>
-    </template>
-
+    <template id="emptyTemplate"><div class="empty-state">&#36824;&#27809;&#26377;&#25968;&#25454;&#65292;&#20808;&#35760;&#24405;&#19968;&#26465;&#32447;&#36335;&#21543;&#12290;</div></template>
     <script src="./app.js" defer></script>
   </body>
 </html>

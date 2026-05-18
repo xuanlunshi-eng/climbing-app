@@ -41,6 +41,27 @@
   box-sizing: border-box;
 }
 
+.icon-sprite {
+  display: none;
+}
+
+.lucide {
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.8;
+}
+
+.button-icon {
+  width: 16px;
+  height: 16px;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -136,6 +157,9 @@ h1 {
 .profile-mini .streak {
   color: var(--ink);
   font-size: 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .daily-card {
@@ -163,6 +187,9 @@ h1 {
   color: rgba(255, 255, 255, 0.82);
   font-weight: 900;
   font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .daily-left strong {
@@ -211,6 +238,9 @@ h1 {
 .daily-right span {
   color: rgba(255, 255, 255, 0.82);
   font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .daily-right strong {
@@ -251,6 +281,9 @@ h1 {
 
 .section-title h2 {
   font-size: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .section-title p {
@@ -402,6 +435,9 @@ textarea {
   background: transparent;
   color: var(--ink);
   font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .recent-list {
@@ -766,7 +802,8 @@ textarea {
 }
 
 .tab-icon {
-  font-size: 1.45rem;
+  display: grid;
+  place-items: center;
 }
 
 .empty-state {

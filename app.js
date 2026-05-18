@@ -38,6 +38,10 @@
 
   var state = loadState();
 
+  function icon(name, extraClass) {
+    return '<svg class="lucide ' + (extraClass || "") + '"><use href="#icon-' + name + '"></use></svg>';
+  }
+
   function $(selector) {
     return document.querySelector(selector);
   }
@@ -229,7 +233,7 @@
         '<div class="grade-badge badge-' + (index % 3) + '">' + escapeHtml(shortGrade(route.grade)) + "</div>" +
         "<div><strong>" + escapeHtml(getStyleLabel(route.style)) + "</strong><span>" + escapeHtml(getGymName(route.gymId)) + (route.note ? " · " + escapeHtml(route.note) : "") + "</span></div>" +
         (route.photo ? '<img class="recent-thumb" src="' + route.photo + '" alt="photo" />' : "") +
-        '<button type="button" data-action="delete-route" aria-label="\u5220\u9664">🗑</button>';
+        '<button type="button" data-action="delete-route" aria-label="\u5220\u9664">' + icon("trash-2", "button-icon") + "</button>";
       container.appendChild(card);
     });
   }
