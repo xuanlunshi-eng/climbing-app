@@ -49,8 +49,10 @@
               </div>
             </div>
             <div class="daily-right">
-              <span><svg class="lucide"><use href="#icon-badge-check"></use></svg>&#20170;&#26085; Send</span>
-              <strong><span id="todayRouteCount">0</span> <small>&#26465;</small></strong>
+              <div class="send-panel">
+                <span><svg class="lucide"><use href="#icon-badge-check"></use></svg>&#20170;&#26085; Send</span>
+                <strong><span id="todayRouteCount">0</span> <small>&#26465;</small></strong>
+              </div>
             </div>
           </section>
 
@@ -64,7 +66,7 @@
               <div class="form-row"><span>&#31867;&#22411;</span><div class="pill-row" id="typePicks"><button type="button" class="pill active" data-type="Boulder">&#25265;&#30707;</button><button type="button" class="pill" data-type="AutoBelay">&#33258;&#20445;</button><button type="button" class="pill" data-type="TopRope">&#39030;&#32499;</button><button type="button" class="pill" data-type="Lead">&#20808;&#38155;</button><button type="button" class="pill" data-type="Speed">&#36895;&#24230;</button></div></div>
               <label><span>&#38590;&#24230;</span><select id="gradeInput" required></select></label>
               <div class="form-row"><span>&#39118;&#26684;</span><div class="pill-row" id="stylePicks"><button type="button" class="pill active" data-style="Dynamic">&#21160;&#24577;</button><button type="button" class="pill" data-style="Coordination">&#21327;&#35843;</button><button type="button" class="pill" data-style="Balance">&#24179;&#34913;</button><button type="button" class="pill" data-style="Power">&#21147;&#37327;</button></div><input id="styleInput" type="hidden" value="Dynamic" /></div>
-              <label class="note-row"><span>&#22791;&#27880;&#65288;&#21487;&#36873;&#65289;</span><div class="note-input"><input id="noteInput" placeholder="&#20889;&#28857;&#20160;&#20040;..." /><label class="photo-button" for="photoInput"><svg class="lucide button-icon"><use href="#icon-camera"></use></svg></label><input id="photoInput" type="file" accept="image/*" capture="environment" /></div><div class="photo-preview hidden" id="photoPreview"></div></label>
+              <label class="note-row"><span>&#22791;&#27880;</span><div class="note-input"><input id="noteInput" placeholder="&#20889;&#28857;&#20160;&#20040;..." /><label class="photo-button" for="photoInput"><svg class="lucide button-icon"><use href="#icon-camera"></use></svg></label><input id="photoInput" type="file" accept="image/*" capture="environment" /></div><div class="photo-preview hidden" id="photoPreview"></div></label>
               <button class="save-button" type="submit">&#20445;&#23384;&#35760;&#24405;</button>
             </form>
           </section>
@@ -78,7 +80,7 @@
         <section class="view" id="view-stats">
           <header class="page-header stats-header"><div><p class="eyebrow">CLIMB LOG</p><h1>SEND.</h1></div><div class="avatar mountain-avatar" id="statsAvatar"></div></header>
           <section class="profile-card"><div class="avatar large mountain-avatar" id="statsProfileAvatar"></div><div class="profile-name"><strong id="statsUserName">SHOKO</strong><span id="statsUserBio">Climbing since 2026</span></div><div class="profile-stat"><span>&#32047;&#35745;&#35760;&#24405;</span><strong id="totalRoutes">0</strong><small>&#26465;</small></div><div class="profile-stat"><span>&#25856;&#29228;&#22825;&#25968;</span><strong id="climbDays">0</strong><small>&#22825;</small></div><div class="profile-stat"><span>&#36830;&#32493;&#25856;&#29228;</span><strong id="statsStreak">0</strong><small>&#22825;</small></div></section>
-          <section class="card"><div class="section-title row-title"><div><h2>&#38590;&#24230;&#28909;&#21147;&#22270;</h2><p>&#39068;&#33394;&#36234;&#28145;&#65292;&#20195;&#34920;&#35760;&#24405;&#36234;&#22810;&#12290;</p></div><select id="statsGymFilter"></select></div><div class="heatmap" id="gradeHeatmap"></div></section>
+          <section class="card"><div class="section-title row-title"><div><h2>&#38590;&#24230;&#28909;&#21147;&#22270;</h2><p>&#39068;&#33394;&#36234;&#28145;&#65292;&#20195;&#34920;&#35760;&#24405;&#36234;&#22810;&#12290;</p></div><div class="stats-filters"><select id="statsGymFilter"></select><select id="statsMonthFilter"></select></div></div><div class="heatmap" id="gradeHeatmap"></div></section>
           <section class="card style-card"><div class="section-title"><h2>&#39118;&#26684;&#20998;&#26512;</h2><p>&#20320;&#30340;&#25856;&#29228;&#39118;&#26684;&#20998;&#24067;</p></div><div class="style-analysis"><canvas id="styleCanvas" width="220" height="220"></canvas><div class="styleLegend" id="styleLegend"></div></div></section>
         </section>
 
@@ -90,7 +92,7 @@
           <p class="settings-label">&#23721;&#39302;&#31649;&#29702;</p>
           <section class="card gym-manager"><div class="manager-head"><h2>&#25105;&#30340;&#23721;&#39302;</h2><button type="button" id="toggleGymEdit">&#32534;&#36753;</button></div><div class="gym-list" id="gymList"></div><form id="gymForm" class="add-gym-form"><input id="gymNameInput" placeholder="&#23721;&#39302;&#21517;&#31216;" required /><button type="submit">+ &#28155;&#21152;&#23721;&#39302;</button></form></section>
           <p class="settings-label">&#22806;&#35266;</p>
-          <section class="card theme-card"><label><span>&#20027;&#39064;</span><select id="themeSelect"><option value="chalk">&#38209;&#31881;</option><option value="night">&#22812;&#25856;</option><option value="wild">&#23665;&#37326;</option></select></label></section>
+          <section class="card theme-card"><label><span>&#20027;&#39064;</span><select id="themeSelect"><option value="chalk">&#38209;&#31881;</option><option value="night">&#22812;&#25856;</option></select></label></section>
         </section>
       </main>
 

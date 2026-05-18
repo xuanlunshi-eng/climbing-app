@@ -192,6 +192,27 @@
     renderTodayGym();
   }
 
+  function renderMonthOptions() {
+    var selected = $("#statsMonthFilter").value || "All";
+    var months = Array.from(new Set(state.routes.map(function (route) {
+      return route.date ? route.date.slice(0, 7) : "";
+    }).filter(Boolean))).sort().reverse();
+    $("#statsMonthFilter").innerHTML = "";
+    var allOption = document.createElement("option");
+    allOption.value = "All";
+    allOption.textContent = "\u5168\u90e8\u65f6\u95f4";
+    $("#statsMonthFilter").appendChild(allOption);
+    months.forEach(function (month) {
+      var option = document.createElement("option");
+      option.value = month;
+      option.textContent = month;
+      $("#statsMonthFilter").appendChild(option);
+    });
+    if (selected !== "All" && months.indexOf(selected) !== -1) {
+      $("#statsMonthFilter").value = selected;
+    }
+  }
+
   function renderTodayGym() {
     var selectedGym = $("#gymSelect").value || (state.gyms[0] && state.gyms[0].id);
     if (selectedGym) $("#gymSelect").value = selectedGym;
@@ -219,13 +240,21 @@
     var container = $("#recentList");
     container.innerHTML = "";
     var routes = state.routes.slice().sort(function (a, b) {
-      return String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
-    }).slice(0, 3);
+      return b.date.localeCompare(a.date) || String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
+    });
     if (!routes.length) {
       container.appendChild(emptyNode("\u36824\u6ca1\u6709\u6700\u8fd1\u8bb0\u5f55\u3002"));
       return;
     }
+    var lastDate = "";
     routes.forEach(function (route, index) {
+      if (route.date !== lastDate) {
+        var heading = document.createElement("div");
+        heading.className = "recent-date-heading";
+        heading.textContent = route.date === today() ? "\u4eca\u5929" : route.date;
+        container.appendChild(heading);
+        lastDate = route.date;
+      }
       var card = document.createElement("article");
       card.className = "recent-card";
       card.setAttribute("data-route-id", route.id);
@@ -262,8 +291,11 @@
     var container = $("#gradeHeatmap");
     container.innerHTML = "";
     var selectedGym = $("#statsGymFilter").value || "All";
+    var selectedMonth = $("#statsMonthFilter").value || "All";
     var statRoutes = state.routes.filter(function (route) {
       return selectedGym === "All" || route.gymId === selectedGym;
+    }).filter(function (route) {
+      return selectedMonth === "All" || (route.date && route.date.slice(0, 7) === selectedMonth);
     });
     if (!statRoutes.length) {
       container.appendChild(emptyNode());
@@ -338,6 +370,7 @@
   function renderAll() {
     renderProfile();
     renderGymOptions();
+    renderMonthOptions();
     renderGyms();
     renderRecent();
     renderStatsSummary();
@@ -488,6 +521,7 @@
 
     $("#gymSelect").addEventListener("change", renderTodayGym);
     $("#statsGymFilter").addEventListener("change", renderGradeHeatmap);
+    $("#statsMonthFilter").addEventListener("change", renderGradeHeatmap);
     $("#dateInput").addEventListener("change", renderToday);
     $("#todayButton").addEventListener("click", function () {
       $("#dateInput").value = today();
